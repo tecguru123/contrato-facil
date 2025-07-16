@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato Fácil</title>
+    <meta name="description" content="Contratos Inteligentes e Seguros" />
+    <meta name="author" content="Contrato Fácil" />
+    
+    <meta property="og:title" content="Contrato Fácil" />
+    <meta property="og:description" content="Contratos Inteligentes e Seguros" />
+    <meta property="og:type" content="website" />
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg class="logo-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                    </svg>
+                    <h1 class="logo-text" data-translate="title">Contrato Fácil</h1>
+                </div>
+                <nav class="nav">
+                    <a href="#inicio" data-translate="nav.home">Início</a>
+                    <a href="#funcionalidades" data-translate="nav.features">Funcionalidades</a>
+                    <a href="#download" data-translate="nav.download">Download</a>
+                    <a href="#contato" data-translate="nav.contact">Contato</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">
+                    <span data-translate="heroTitle">Contratos Inteligentes e Seguros</span>
+                </h2>
+                <p class="hero-subtitle" data-translate="heroSubtitle">
+                    Crie, gerencie e assine contratos digitais de forma rápida, segura e totalmente legal. 
+                    Nossa plataforma utiliza tecnologia de ponta para garantir a validade jurídica dos seus documentos.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="goToDownload()" data-translate="downloadButton">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7,10 12,15 17,10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Baixar App
+                    </button>
+                    <button class="btn btn-outline">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+                            <path d="M12 18h.01"/>
+                        </svg>
+                        <span data-translate="demoButton">Ver Demo</span>
+                    </button>
+                </div>
+                
+                <!-- Stats -->
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label" data-translate="stats.contracts">Contratos criados</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5K+</div>
+                        <div class="stat-label" data-translate="stats.users">Usuários ativos</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">99%</div>
+                        <div class="stat-label" data-translate="stats.satisfaction">Satisfação</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="funcionalidades" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-title" data-translate="featuresTitle">Funcionalidades Principais</h3>
+                <p class="section-subtitle" data-translate="featuresSubtitle">
+                    Descubra todas as ferramentas que tornam a criação de contratos mais simples e eficiente
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title" data-translate="features.templates.title">Templates Prontos</h4>
+                    <p class="feature-description" data-translate="features.templates.description">
+                        Mais de 100 modelos de contratos profissionais prontos para uso imediato
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title" data-translate="features.security.title">Segurança Total</h4>
+                    <p class="feature-description" data-translate="features.security.description">
+                        Criptografia de ponta e certificação digital para máxima segurança
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12,6 12,12 16,14"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title" data-translate="features.speed.title">Rapidez</h4>
+                    <p class="feature-description" data-translate="features.speed.description">
+                        Crie contratos profissionais em minutos, não em horas
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 12l2 2 4-4"/>
+                            <circle cx="12" cy="12" r="10"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title" data-translate="features.signature.title">Assinatura Digital</h4>
+                    <p class="feature-description" data-translate="features.signature.description">
+                        Assinatura eletrônica com validade jurídica completa
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title" data-translate="features.collaboration.title">Colaboração</h4>
+                    <p class="feature-description" data-translate="features.collaboration.description">
+                        Trabalhe em equipe e compartilhe documentos facilmente
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title" data-translate="features.support.title">Suporte 24/7</h4>
+                    <p class="feature-description" data-translate="features.support.description">
+                        Atendimento especializado disponível a qualquer hora
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="container">
+            <div class="download-content">
+                <h3 class="section-title" data-translate="downloadTitle">Baixe Agora</h3>
+                <p class="section-subtitle" data-translate="downloadSubtitle">
+                    Disponível para Android. Download gratuito e instalação simples.
+                </p>
+                
+                <div class="download-info">
+                    <div class="download-details">
+                        <h4 data-translate="downloadInfo.title">Informações do App</h4>
+                        <ul class="download-list">
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 12l2 2 4-4"/>
+                                    <circle cx="12" cy="12" r="10"/>
+                                </svg>
+                                <span data-translate="downloadInfo.compatibility">Android 6.0+</span>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 12l2 2 4-4"/>
+                                    <circle cx="12" cy="12" r="10"/>
+                                </svg>
+                                <span data-translate="downloadInfo.size">Tamanho: 15MB</span>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 12l2 2 4-4"/>
+                                    <circle cx="12" cy="12" r="10"/>
+                                </svg>
+                                <span data-translate="downloadInfo.version">Versão: 2.1.0</span>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 12l2 2 4-4"/>
+                                    <circle cx="12" cy="12" r="10"/>
+                                </svg>
+                                <span data-translate="downloadInfo.secure">100% Seguro</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="download-action">
+                        <button class="btn btn-primary btn-large" onclick="goToDownload()">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7,10 12,15 17,10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            <span data-translate="downloadButton">Baixar App</span> (15MB)
+                        </button>
+                        <p class="download-note">
+                            * <span data-translate="instructions.steps.2">Permitir instalação de fontes desconhecidas</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="instructions-box">
+                    <h5 data-translate="instructions.title">Instruções de Instalação</h5>
+                    <ol class="instructions-list">
+                        <li data-translate="instructions.steps.0">Baixe o arquivo APK</li>
+                        <li data-translate="instructions.steps.1">Abra o arquivo baixado</li>
+                        <li data-translate="instructions.steps.2">Permitir instalação de fontes desconhecidas</li>
+                        <li data-translate="instructions.steps.3">Siga as instruções na tela</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="contact">
+        <div class="container">
+            <h3 class="section-title" data-translate="contactTitle">Entre em Contato</h3>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4 data-translate="contact.email">E-mail</h4>
+                    <p>contato@contratofacil.com</p>
+                </div>
+                <div class="contact-item">
+                    <h4 data-translate="contact.whatsapp">WhatsApp</h4>
+                    <p>(11) 99999-9999</p>
+                </div>
+                <div class="contact-item">
+                    <h4 data-translate="contact.hours">Horário</h4>
+                    <p>Seg-Sex: 8h às 18h</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                    </svg>
+                    <span data-translate="title">Contrato Fácil</span>
+                </div>
+                <p class="footer-tagline" data-translate="footerTagline">
+                    Transformando a criação de contratos com tecnologia e simplicidade.
+                </p>
+                <div class="footer-divider"></div>
+                <p class="footer-copyright" data-translate="footerCopyright">
+                    © 2024 Contrato Fácil. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
