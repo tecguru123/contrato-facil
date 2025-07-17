@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download - Contrato Fácil</title>
+    <meta name="description" content="Baixe o Contrato Fácil para Android" />
+     <link rel="icon" href="https://images.unsplash.com/photo-1544396821-4dd40b938ad3?q=80&w=873&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" type="image/jpeg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header header-download">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo" onclick="goToIndex()">
+                    <svg class="logo-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                    </svg>
+                    <h1 class="logo-text" data-translate="title">Contrato Fácil</h1>
+                </div>
+                <button class="btn btn-outline btn-sm" onclick="goToIndex()">
+                    <span data-translate="downloadPage.back">Voltar</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Download Section -->
+    <section class="download-hero">
+        <div class="container">
+            <div class="download-hero-content">
+                <h2 class="download-hero-title">
+                    <span data-translate="downloadPage.title">Baixe o Contrato Fácil</span>
+                </h2>
+                <p class="download-hero-subtitle" data-translate="downloadPage.subtitle">
+                    Tenha contratos profissionais na palma da sua mão com nosso app para Android
+                </p>
+                
+                <div class="download-hero-box">
+                    <div class="download-hero-info">
+                        <h3 data-translate="downloadInfo.title">Informações do Download</h3>
+                        <div class="download-version" data-translate="downloadPage.version">v2.1.0</div>
+                        <div class="download-size" data-translate="downloadPage.size">15MB</div>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-xl" onclick="handleDownloadAPK()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7,10 12,15 17,10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        <span data-translate="downloadPage.downloadNow">Baixar Agora</span>
+                    </button>
+                </div>
+
+                <!-- Android Highlight -->
+                <div class="android-highlight">
+                    <h5 data-translate="androidHighlight.title">Otimizado para Android</h5>
+                    <ul>
+                        <li data-translate="androidHighlight.items.0">Interface adaptada para telas móveis</li>
+                        <li data-translate="androidHighlight.items.1">Funciona offline após instalação</li>
+                        <li data-translate="androidHighlight.items.2">Suporte a assinatura digital</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator" id="scrollIndicator">
+            <button onclick="scrollToContent()">
+                <span>Role para baixo</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 13l5 5 5-5"/>
+                    <path d="M7 6l5 5 5-5"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Download Content -->
+    <section id="download-content" class="download-content-section">
+        <div class="container">
+            
+            <!-- Installation Instructions -->
+            <div id="instructions-section" class="instructions-section">
+                <h3 class="section-title" data-translate="downloadPage.instructionsTitle">
+                    Como Instalar
+                </h3>
+                
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-header">
+                            <span class="step-number">1</span>
+                            <h4 data-translate="downloadPage.stepTitles.0">Baixar APK</h4>
+                        </div>
+                        <p data-translate="downloadPage.stepDescriptions.0">
+                            Clique no botão de download para baixar o arquivo APK
+                        </p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-header">
+                            <span class="step-number">2</span>
+                            <h4 data-translate="downloadPage.stepTitles.1">Permitir Instalação</h4>
+                        </div>
+                        <p data-translate="downloadPage.stepDescriptions.1">
+                            Nas configurações, permita instalação de fontes desconhecidas
+                        </p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-header">
+                            <span class="step-number">3</span>
+                            <h4 data-translate="downloadPage.stepTitles.2">Instalar App</h4>
+                        </div>
+                        <p data-translate="downloadPage.stepDescriptions.2">
+                            Abra o arquivo baixado e siga as instruções
+                        </p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-header">
+                            <span class="step-number">4</span>
+                            <h4 data-translate="downloadPage.stepTitles.3">Começar a Usar</h4>
+                        </div>
+                        <p data-translate="downloadPage.stepDescriptions.3">
+                            Abra o app e comece a criar seus contratos
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Android Tips -->
+                <div class="android-tips">
+                    <h4 data-translate="downloadPage.androidTips.title">Dicas para Android</h4>
+                    <ul>
+                        <li data-translate="downloadPage.androidTips.tips.0">Certifique-se de ter espaço suficiente (20MB livres)</li>
+                        <li data-translate="downloadPage.androidTips.tips.1">Mantenha uma conexão estável durante o download</li>
+                        <li data-translate="downloadPage.androidTips.tips.2">Verifique se seu Android é versão 6.0 ou superior</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- App Features -->
+            <div class="app-features">
+                <h3 class="section-title" data-translate="downloadPage.appFeaturesTitle">
+                    Recursos do App
+                </h3>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h4 data-translate="features.security.title">Segurança Total</h4>
+                        <p data-translate="features.security.description">
+                            Criptografia de ponta e certificação digital para máxima segurança
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                            </svg>
+                        </div>
+                        <h4 data-translate="features.templates.title">Templates Prontos</h4>
+                        <p data-translate="features.templates.description">
+                            Mais de 100 modelos de contratos profissionais prontos para uso imediato
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
+                        </div>
+                        <h4 data-translate="features.speed.title">Rapidez</h4>
+                        <p data-translate="features.speed.description">
+                            Crie contratos profissionais em minutos, não em horas
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Requirements -->
+            <div class="system-requirements">
+                <h3 class="section-title" data-translate="downloadPage.systemRequirements">
+                    Requisitos do Sistema
+                </h3>
+                
+                <div class="requirements-grid">
+                    <div class="requirements-column">
+                        <h4 data-translate="downloadPage.minimumReqs">Requisitos Mínimos</h4>
+                        <ul class="requirements-list">
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 12l2 2 4-4"/>
+                                    <circle cx="12" cy="12" r="10"/>
+                                </svg>
+                                <span data-translate="downloadPage.requirements.0">Android 6.0 ou superior</span>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 12l2 2 4-4"/>
+                                    <circle cx="12" cy="12" r="10"/>
+                                </svg>
+                                <span data-translate="downloadPage.requirements.1">20MB de espaço livre</span>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 12l2 2 4-4"/>
+                                    <circle cx="12" cy="12" r="10"/>
+                                </svg>
+                                <span data-translate="downloadPage.requirements.2">Conexão com internet</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="requirements-column">
+                        <h4 data-translate="downloadPage.features">Recursos Inclusos</h4>
+                        <ul class="requirements-list">
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 12l2 2 4-4"/>
+                                    <circle cx="12" cy="12" r="10"/>
+                                </svg>
+                                <span data-translate="downloadPage.appFeatures.0">Criação de contratos</span>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 12l2 2 4-4"/>
+                                    <circle cx="12" cy="12" r="10"/>
+                                </svg>
+                                <span data-translate="downloadPage.appFeatures.1">Assinatura digital</span>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 12l2 2 4-4"/>
+                                    <circle cx="12" cy="12" r="10"/>
+                                </svg>
+                                <span data-translate="downloadPage.appFeatures.2">Sincronização na nuvem</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h3 data-translate="downloadPage.finalCTA.title">
+                Pronto para Começar?
+            </h3>
+            <p data-translate="downloadPage.finalCTA.subtitle">
+                Baixe agora e comece a criar contratos profissionais em minutos
+            </p>
+            <button class="btn btn-primary btn-xl" onclick="handleDownloadAPK()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7,10 12,15 17,10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                <span data-translate="downloadButton">Baixar App</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                    </svg>
+                    <span data-translate="title">Contrato Fácil</span>
+                </div>
+                <p class="footer-tagline" data-translate="footerTagline">
+                    Transformando a criação de contratos com tecnologia e simplicidade.
+                </p>
+                <div class="footer-divider"></div>
+                <p class="footer-copyright" data-translate="footerCopyright">
+                    © 2024 Contrato Fácil. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="download.js"></script>
+</body>
+</html>
