@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirma Fácil - Verificações Rápidas e Seguras</title>
+    <meta name="description" content="Preencha nome e gere um comprovante da negociação">
+    <link rel="icon" href="https://images.unsplash.com/photo-1544396821-4dd40b938ad3?q=80&w=873&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" type="image/jpeg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* RESET E ESTILOS GERAIS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background-color: #4285F4;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #3367D6;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid #4285F4;
+            color: #4285F4;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* HEADER */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo svg {
+            color: #4285F4;
+            width: 32px;
+            height: 32px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+        
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #4285F4;
+        }
+        
+        /* SEÇÃO HERO COM CARROSSEL */
+        .hero-section {
+            margin-top: 80px; /* Compensa o header fixo */
+        }
+        
+        .hero-carousel {
+            position: relative;
+            height: 70vh;
+            max-height: 700px;
+            overflow: hidden;
+        }
+        
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .carousel {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .slide-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .slide-content h2 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .slide-content p {
+            font-size: 1.3rem;
+            color: white;
+            max-width: 700px;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* PROVA SOCIAL - ESTRELAS E NÚMEROS (agora abaixo do carrossel) */
+        .social-proof {
+            background-color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stars {
+            font-size: 1.8rem;
+            color: #FFC107;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+        
+        .social-numbers {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .social-number {
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        .social-number strong {
+            font-size: 1.4rem;
+            color: #4285F4;
+            font-weight: 700;
+        }
+        
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .carousel-dot.active {
+            background-color: white;
+        }
+        
+        /* SEÇÃO DE FUNCIONALIDADES */
+        .features {
+            background-color: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #4285F4;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        /* SEÇÃO DE DOWNLOAD */
+        .download {
+            background-color: #f5f9ff;
+        }
+        
+        /* BOTÃO PLAY STORE */
+        .play-store-btn {
+            display: inline-block;
+            margin: 30px 0;
+            transition: transform 0.3s;
+        }
+        
+        .play-store-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .play-store-btn img {
+            height: 70px;
+        }
+        
+        /* AVALIAÇÕES */
+        .user-reviews {
+            margin: 80px 0;
+        }
+        
+        .reviews-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .review-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 350px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .review-card .stars {
+            font-size: 1.5rem;
+            color: #FFC107;
+            margin-bottom: 15px;
+        }
+        
+        .review-card .text {
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .review-card .author {
+            font-weight: bold;
+            color: #555;
+        }
+        
+        /* SEÇÃO DE CONTATO */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #4285F4;
+            outline: none;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* SEÇÃO DE INSTRUÇÕES DE INSTALAÇÃO */
+        .installation-instructions {
+            background-color: #f5f9ff;
+            padding: 60px 0;
+        }
+        
+        .instructions-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .instruction-step {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background-color: #4285F4;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+        
+        .step-content h4 {
+            margin-bottom: 10px;
+            color: #222;
+        }
+        
+        .step-content p {
+            color: #555;
+        }
+        
+        .warning-box {
+            background-color: #FFF8E6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #FFC107;
+        }
+        
+        .warning-box p {
+            margin: 0;
+            color: #E65100;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: modalSlideIn 0.4s ease-out;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header img {
+            height: 70px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-warning {
+            background-color: #FFF8E6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 4px solid #FFC107;
+            text-align: left;
+        }
+        
+        .modal-warning p {
+            margin: 0;
+            color: #E65100;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .btn-modal {
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-modal-primary {
+            background-color: #4285F4;
+            color: white;
+            border: none;
+        }
+        
+        .btn-modal-primary:hover {
+            background-color: #3367D6;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #777;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: #333;
+        }
+        
+        /* WHATSAPP FLOAT */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo svg {
+            color: #4285F4;
+            width: 24px;
+            height: 24px;
+        }
+        
+        .footer-logo span {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .footer-divider {
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav {
+                gap: 15px;
+            }
+            
+            .hero-section {
+                margin-top: 70px;
+            }
+            
+            .hero-carousel {
+                height: 60vh;
+            }
+            
+            .slide-content h2 {
+                font-size: 2rem;
+            }
+            
+            .slide-content p {
+                font-size: 1rem;
+            }
+            
+            .social-numbers {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .play-store-btn img {
+                height: 60px;
+            }
+            
+            .modal-content {
+                padding: 30px 20px;
+            }
+            
+            .modal-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-modal {
+                width: 100%;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .instruction-step {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                    </svg>
+                    <h1>Confirma Fácil</h1>
+                </div>
+                <nav>
+                    <a href="#inicio">Início</a>
+                    <a href="#funcionalidades">Funcionalidades</a>
+                    <a href="#download">Download</a>
+                    <a href="#contato">Contato</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEÇÃO HERO COM CARROSSEL -->
+    <section id="inicio" class="hero-section">
+        <!-- CARROSSEL NO TOPO -->
+        <div class="hero-carousel">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide">
+                        <img src="https://play-lh.googleusercontent.com/YJ5sAyMc2SZH1jcnmKCgt1kTc-LT0nn4jQ9BIADsc9eqjRC4MKvZTFRuhPnxE8v1-Yw=w2560-h1440-rw" alt="Modelos de contratos">
+                        <div class="slide-content">
+                            <h2>Confirmação digital</h2>
+                            <p>Confirmação digital de compromisso</p>
+                            <div class="hero-buttons">
+                                <button class="btn btn-primary" onclick="handleDownloadAPK()">
+                                    <i class="fas fa-download"></i>
+                                    Baixar App
+                                </button>
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    Ver Demo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Assinatura de contratos digitais">
+                        <div class="slide-content">
+                            <h2>Validação Rápida</h2>
+                            <p>Confirme seus dados antes de qualquer negociação.</p>
+                            <div class="hero-buttons">
+                                <button class="btn btn-primary" onclick="handleDownloadAPK()">
+                                    <i class="fas fa-download"></i>
+                                    Baixar App
+                                </button>
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    Ver Demo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Armazenamento seguro">
+                        <div class="slide-content">
+                            <h2>Armazenamento Seguro na Nuvem</h2>
+                            <p>Todos seus documentos protegidos com criptografia de ponta a ponta</p>
+                            <div class="hero-buttons">
+                                <button class="btn btn-primary" onclick="handleDownloadAPK()">
+                                    <i class="fas fa-download"></i>
+                                    Baixar App
+                                </button>
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    Ver Demo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-nav">
+                    <div class="carousel-dot active"></div>
+                    <div class="carousel-dot"></div>
+                    <div class="carousel-dot"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PROVA SOCIAL - ESTRELAS E NÚMEROS (agora abaixo do carrossel) -->
+        <div class="social-proof">
+            <div class="stars">★★★★★</div>
+            <div class="social-numbers">
+                <div class="social-number">
+                    <strong>10K+</strong> Contratos
+                </div>
+                <div class="social-number">
+                    <strong>5K+</strong> Usuários
+                </div>
+                <div class="social-number">
+                    <strong>4.9</strong> Avaliação
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE FUNCIONALIDADES -->
+    <section id="funcionalidades" class="features">
+        <div class="container">
+            <div class="text-center">
+                <h2>Funcionalidades</h2>
+                <p>Descubra tudo o que nossa plataforma pode fazer por você</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h3>Assinatura Digital</h3>
+                    <p>Assine documentos com validade  usando certificado digital ou e-CPF de forma rápida e segura.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Modelos Prontos</h3>
+                    <p>Diversos modelos de contratos para diferentes necessidades, todos com validade jurídica garantida.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Armazenamento Seguro</h3>
+                    <p>Todos seus documentos armazenados com criptografia de ponta a ponta na nuvem.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Lembretes Automáticos</h3>
+                    <p>Notificações para renovação de contratos e vencimento de prazos importantes.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Assinatura Múltipla</h3>
+                    <p>Envie para várias pessoas assinarem simultaneamente com acompanhamento em tempo real.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Segurança Máxima</h3>
+                    <p>Tecnologia blockchain para registro imutável e certificação de autenticidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOWNLOAD SECTION -->
+    <section id="download" class="download">
+        <div class="container">
+            <div class="text-center">
+                <h2>Baixe Agora</h2>
+                <p>Disponível para Android. Download gratuito e instalação simples.</p>
+            </div>
+            
+            <!-- BOTÃO PLAY STORE -->
+            <div class="text-center">
+                <a href="#" class="play-store-btn" onclick="handleDownloadAPK()">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Disponível no Google Play">
+                </a>
+            </div>
+            
+            <!-- AVALIAÇÕES -->
+            <div class="user-reviews">
+                <h3 class="text-center">O que nossos usuários dizem</h3>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="text">"Facilitou minha vida com contratos! Agora consigo criar e assinar documentos em minutos, tudo com validade jurídica."</p>
+                        <p class="author">— João Silva, Advogado</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="text">"A assinatura digital funciona perfeitamente. Já usei em vários contratos com clientes e nunca tive problemas."</p>
+                        <p class="author">— Marina Oliveira, Empreendedora</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="text">"Os templates prontos salvam muito tempo. O app é intuitivo e fácil de usar, mesmo para quem não tem experiência."</p>
+                        <p class="author">— Rafael Costa, Gerente de RH</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE INSTRUÇÕES DE INSTALAÇÃO -->
+    <section id="instrucoes-instalacao" class="installation-instructions">
+        <div class="container">
+            <div class="instructions-container">
+                <h2 class="text-center">Como Instalar o Aplicativo</h2>
+                <p class="text-center">Siga estas instruções para instalar o Confirma Fácil em seu dispositivo Android</p>
+                
+                <div class="instruction-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Permitir instalação de fontes desconhecidas</h4>
+                        <p>Vá em <strong>Configurações > Segurança</strong> e ative a opção "Fontes desconhecidas" para permitir a instalação de aplicativos fora da Play Store.</p>
+                    </div>
+                </div>
+                
+                <div class="instruction-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Baixe o arquivo APK</h4>
+                        <p>O download do arquivo <strong>ContratoFacil.apk</strong> começará automaticamente. Caso não inicie, <a href="#" onclick="confirmDownload()">clique aqui</a> para tentar novamente.</p>
+                    </div>
+                </div>
+                
+                <div class="instruction-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Localize o arquivo baixado</h4>
+                        <p>Após o download, abra o gerenciador de arquivos e vá para a pasta <strong>Downloads</strong> para encontrar o arquivo APK.</p>
+                    </div>
+                </div>
+                
+                <div class="instruction-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Instale o aplicativo</h4>
+                        <p>Toque no arquivo APK e siga as instruções na tela para completar a instalação.</p>
+                    </div>
+                </div>
+                
+                <div class="warning-box">
+                    <p>
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Se aparecer um aviso de segurança, toque em "Instalar mesmo assim".
+                    </p>
+                </div>
+                
+                <div class="text-center" style="margin-top: 30px;">
+                    <button class="btn btn-primary" onclick="confirmDownload()">
+                        <i class="fas fa-redo"></i>
+                        Baixar Novamente
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE CONTATO -->
+    <section id="contato" class="contact">
+        <div class="container">
+            <div class="text-center">
+                <h2>Entre em Contato</h2>
+                <p>Tire suas dúvidas ou solicite mais informações sobre nossa plataforma</p>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Assunto</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i>
+                        Enviar Mensagem
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DE DOWNLOAD -->
+    <div id="downloadModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeDownloadModal()">&times;</button>
+            
+            <div class="modal-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+                <h3>Instalação Segura</h3>
+            </div>
+            
+            <p>Você está prestes a baixar o Confirma Fácil diretamente em seu dispositivo Android.</p>
+            
+            <div class="modal-warning">
+                <p>
+                    <i class="fas fa-exclamation-triangle"></i>
+                    O Android pode mostrar um aviso de segurança durante a instalação.
+                </p>
+            </div>
+            
+            <p><strong>Isso é normal!</strong> O aviso aparece porque o app não está sendo instalado pela Play Store. Garantimos que o aplicativo é 100% seguro.</p>
+            
+            <div class="modal-buttons">
+                <button class="btn-modal btn-modal-primary" onclick="confirmDownload()">
+                    <i class="fas fa-download"></i>
+                    Continuar Download
+                </button>
+                <button class="btn-modal" onclick="closeDownloadModal()">
+                    <i class="fas fa-times"></i>
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                    </svg>
+                    <span>Confirma Fácil</span>
+                </div>
+                <p>Transformando a criação de contratos com tecnologia e simplicidade.</p>
+                <div class="footer-divider"></div>
+                <p>© 2024 Confirma Fácil. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // CARROSSEL PRINCIPAL
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.hero-carousel .carousel');
+            const dots = document.querySelectorAll('.hero-carousel .carousel-dot');
+            const slides = document.querySelectorAll('.hero-carousel .carousel-slide');
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+            
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+            
+            // Auto-play
+            let interval = setInterval(() => {
+                currentIndex = (currentIndex < totalSlides - 1) ? currentIndex + 1 : 0;
+                updateCarousel();
+            }, 5000);
+            
+            const carouselContainer = document.querySelector('.hero-carousel .carousel-container');
+            carouselContainer.addEventListener('mouseenter', () => {
+                clearInterval(interval);
+            });
+            
+            carouselContainer.addEventListener('mouseleave', () => {
+                interval = setInterval(() => {
+                    currentIndex = (currentIndex < totalSlides - 1) ? currentIndex + 1 : 0;
+                    updateCarousel();
+                }, 5000);
+            });
+        });
+        
+        // MODAL DE DOWNLOAD
+        function handleDownloadAPK() {
+            document.getElementById('downloadModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeDownloadModal() {
+            document.getElementById('downloadModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        function confirmDownload() {
+            closeDownloadModal();
+            // Simular download
+            window.location.href = "app.apk";
+            
+            // Rolar para a seção de instruções após 500ms (tempo para o modal fechar)
+            setTimeout(() => {
+                document.getElementById('instrucoes-instalacao').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }, 500);
+        }
+        
+        // FORMULÁRIO DE CONTATO
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            this.reset();
+        });
+        
+        window.onclick = function(event) {
+            const modal = document.getElementById('downloadModal');
+            if (event.target === modal) {
+                closeDownloadModal();
+            }
+        }
+    </script>
+</body>
+</html>
